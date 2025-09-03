@@ -20,4 +20,4 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 5000
 
 # 启动命令
-CMD ["bash", "/app/run.sh"]
+CMD ["bash", "run.sh"]
