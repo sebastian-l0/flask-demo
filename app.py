@@ -12,7 +12,7 @@ db.init_app(app)
 
 # 创建数据库表
 with app.app_context():
-    db.create_all()
+    db.create_all(checkfirst=True)
     
     # 创建默认管理员账户（用户名: admin, 密码: admin123）
     if not User.query.filter_by(username='admin').first():
