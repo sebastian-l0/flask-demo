@@ -10,19 +10,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
-# 创建数据库表
-with app.app_context():
-    db.metadata.create_all(bind=db.engine, checkfirst=True)
-    
-    # 创建默认管理员账户（用户名: admin, 密码: admin123）
-    if not User.query.filter_by(username='admin').first():
-        admin = User(
-            username='admin',
-            password=generate_password_hash('admin123')
-        )
-        db.session.add(admin)
-        db.session.commit()
-
 # 前台首页
 @app.route('/')
 def index():
